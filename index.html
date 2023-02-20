@@ -13,57 +13,30 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div class="container" id="app">
+    <section class="py-5" id="app">
+        <div class="container">
+          
+            <div id="carousel-section" class="carousel-section mt-0 mb-0 ms-auto me-auto"> 
+                
+                <div :class="index === currentIndex ? 'active' : '' " class="slide" v-for="(slide,index) in slideImages">
+                    <img v-bind:src="slide.image" alt="">
+                    <div class="img-title">{{slide.title}}</div>
+                    <div class="img-text">{{slide.text}}</div>
+                </div>
+            
+                <div @click="leftAutoPlay()" class="carousel-arrow arrow-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            
+                <div @click="rightAutoPlay()" class="carousel-arrow arrow-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
 
-        <div v-for="slide in slideImages" >
-           
+            </div>
         </div>
-    </div>
+    </section>
 
-
-
-    <script>
-    
-      const { createApp } = Vue
-      createApp({
-        data() {
-          return {
-                slideImages: [
-                {
-                    image: './img/img-1.jpeg',
-                    title: "Guard ò mar quant'è bell",
-                    text: 'Mare del folfo di Napoli in tempresta',
-                },    
-                {
-                    image: './img/img-2.jpeg',
-                    title: "Pinocchio, atto primo.",
-                    text: 'Tavole del patio da spazzare',
-                },
-                {
-                    image: './img/img-3.jpeg',
-                    title: "AUGH!.",
-                    text: 'Scaccia sogni di età pre coloniale',
-                },
-                {
-                    image: './img/img-4.jpeg',
-                    title: "Mbare! L'etna si sta svegliando!",
-                    text: 'Altopiano vulcanico siculo in prospettiva',
-                },
-                {
-                    image: './img/img-5.jpg',
-                    title: "Chi me l'ha fatto fare",
-                    text: 'Cercando di studiare js',
-                },
-                {
-                    image: './img/img-6.jpg',
-                    title: "3,2,1, Buon anno!",
-                    text: 'Festeggiamenti di capodanno in Wyoming',
-                },
-            ]
-          }
-        }
-      }).mount('#app')
-    </script>
+    <script src="./js/app.js"></script>
 
 </body>
 </html>
