@@ -20,8 +20,8 @@
                 
                 <div :class="index === currentIndex ? 'active' : '' " class="slide" v-for="(slide,index) in slideImages">
                     <img v-bind:src="slide.image" alt="">
-                    <div class="img-title">{{slide.title}}</div>
-                    <div class="img-text">{{slide.text}}</div>
+                    <h3 class="img-title">{{slide.title}}</h3>
+                    <p class="img-text">{{slide.text}}</p>
                 </div>
             
                 <div @click="leftAutoPlay()" class="carousel-arrow arrow-left">
